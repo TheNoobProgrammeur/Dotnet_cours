@@ -15,7 +15,7 @@ namespace Fibonacci.Tests
         }
         
         [Fact]
-        public void Execute44And33SouldReturn()
+        public void Execute44And33SouldReturn701408733And3524578()
         {
             var resulte = Fibonacci.ListFib(new[] {"44", "33"});
             Assert.Equal(new List<int>{701408733,3524578},resulte);
