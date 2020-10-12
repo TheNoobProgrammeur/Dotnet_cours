@@ -12,15 +12,10 @@ internal class Program
         var stopwatch = new Stopwatch();
         stopwatch.Start();
         // IList<Task<string>> tasks = new List<Task<string>>();
-        var res = new ParallelOptions();
-        var results = new ConcurrentBag<int[]>();
-
-        Parallel.ForEach(args, res, (arg) =>
-        {
-            var result = Fibonacci.Fibonacci.Fib(arg);
-            results.Add(result);
-        });
+        //var res = new ParallelOptions();
         
+        var results = Fibonacci.Fibonacci.ListFib(args);
+
         foreach (var task in results)
         {
             Console.WriteLine($"Resulte : {task}");
