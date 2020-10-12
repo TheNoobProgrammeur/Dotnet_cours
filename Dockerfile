@@ -6,4 +6,4 @@ RUN dotnet publish "./src/Fibonacci.Web.csproj" -c Release -r linux-x64 /p:Publi
 FROM mcr.microsoft.com/dotnet/runtime-deps:5.0 AS final
 WORKDIR /app
 COPY --from=build /publish .
-ENTRYPOINT ["/app/ Fibonacci.Web"]
+ENTRYPOINT ["/app/Fibonacci.Web"]
