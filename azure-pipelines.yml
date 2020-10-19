@@ -1,0 +1,28 @@
+trigger:
+- master
+
+resources:
+- repo: self
+
+name: 
+stages:
+
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: 'net5.0.100-rc.1.2042.10' 
+
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        testRunTitle: 'TestUniter'
+        workingDirectory: '.\tests\Fibonacci.Tests'
+         
