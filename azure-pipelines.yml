@@ -32,7 +32,7 @@ steps:
       organization: 'thenoobprogrammeur'
       scannerMode: 'CLI'
       configMode: 'manual'
-      cliProjectKey: '$(sonar.token)'
+      cliProjectKey: '$(sonar)'
       cliProjectName: 'Dotnet_cours'
       cliSources: '.'
       extraProperties: |
