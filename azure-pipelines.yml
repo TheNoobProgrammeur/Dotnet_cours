@@ -16,7 +16,7 @@ steps:
   - task: UseDotNet@2
     inputs:
       packageType: 'sdk'
-      version: '5.0.0-rc.1.20451.14'
+      version: '5.0.100-rc.1.20452.10'
       includePreviewVersions: true
   
   - task: DotNetCoreCLI@2
@@ -30,8 +30,11 @@ steps:
     inputs:
       SonarCloud: 'Sonar'
       organization: 'thenoobprogrammeur'
-      scannerMode: 'MSBuild'
-      projectKey: '72fa53c4f6135fc8f9b5b2e98e459b4147d08b69'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: '$(sonar.token)'
+      cliProjectName: 'TheNoobProgrammeur_Dotnet_cours'
+      cliSources: '.'
   - task: SonarCloudAnalyze@1
   
   - task: DotNetCoreCLI@2
