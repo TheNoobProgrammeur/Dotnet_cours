@@ -26,6 +26,12 @@ steps:
       arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./coverage/opencover.xml'
       publishTestResults: false
 
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'Sonar'
+      organization: 'thenoobprogrammeur'
+      scannerMode: 'MSBuild'
+      projectKey: '72fa53c4f6135fc8f9b5b2e98e459b4147d08b69'
   - task: SonarCloudAnalyze@1
   
   - task: DotNetCoreCLI@2
