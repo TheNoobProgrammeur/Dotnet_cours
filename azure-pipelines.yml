@@ -32,11 +32,12 @@ steps:
       organization: 'thenoobprogrammeur'
       scannerMode: 'CLI'
       configMode: 'manual'
-      cliProjectKey: '$(sonar)'
-      cliProjectName: 'Dotnet_cours'
+      cliProjectKey: 'TheNoobProgrammeur_Dotnet_cour'
+      cliProjectName: 'Dotnet_cour'
       cliSources: '.'
       extraProperties: |
-        sonar.exclusions=**/*.spec.ts,**/*.spec.tsx,**/*.stories.tsx,**/coverage/**,Scripts/**,**/*.scss,**/__snapshots__/**,**/*[Tt]ests.cs,**/node_modules/**,**/ClientApp/build/**,**/ClientApp/.storybook/**,**/obj/**,**/__mocks__/**,**/ClientApp/src/serviceWorker.ts sonar.cs.opencover.reportsPaths=**/opencover.xml
+        sonar.cs.opencover.reportsPaths=**/opencover.xml
+        sonar.branch.name=$(Build.SourceBranchName)
   - task: SonarCloudAnalyze@1
   - task: SonarCloudPublish@1
     inputs:
